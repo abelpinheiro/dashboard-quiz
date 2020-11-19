@@ -17,7 +17,11 @@ import { HomeComponent } from './views/home/home.component';
 import { QuestionCrudComponent } from './views/question-crud/question-crud.component';
 import { RedDirective } from './directives/red.directive';
 import { ForDirective } from './directives/for.directive';
+import { QuestionCreateComponent } from './components/question/question-create/question-create.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { ForDirective } from './directives/for.directive';
     HomeComponent,
     QuestionCrudComponent,
     RedDirective,
-    ForDirective
+    ForDirective,
+    QuestionCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,10 @@ import { ForDirective } from './directives/for.directive';
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
