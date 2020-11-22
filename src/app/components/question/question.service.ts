@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class QuestionService {
 
+  //baseUrl = "https://agenquiz.herokuapp.com/perguntas"
   baseUrl = "http://localhost:8080/perguntas"
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }

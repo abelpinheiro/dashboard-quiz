@@ -3,6 +3,11 @@ import { QuestionService } from './../question.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+interface AnswerType{
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-question-create',
   templateUrl: './question-create.component.html',
@@ -11,9 +16,9 @@ import { Router } from '@angular/router';
 export class QuestionCreateComponent implements OnInit {
 
   question: Question = {
-    quizType: "science",
-    question: "Quem foi a primeira mulher a ganhar o prêmio Nobel?",
-    answerType: "SINGLE_CHOICE",
+    quizType: "",
+    question: "",
+    answerType: "",
     choices: [
       "Ada Lovelace",
       "Marie Curie",
@@ -25,6 +30,12 @@ export class QuestionCreateComponent implements OnInit {
     ]
   }
 
+  answerTypes: AnswerType[] = [
+    {value: "SINGLE_CHOICE", viewValue: "Única escolha"},
+    {value: "MULTIPLE_CHOICE", viewValue: "Múltipla escolha"},
+    {value: "WRITING_CHOICE", viewValue: "Escrita"}
+  ]
+
   constructor(
     private questionService: QuestionService,
     private router: Router) { }
@@ -33,6 +44,7 @@ export class QuestionCreateComponent implements OnInit {
   }
 
   createQuestion(): void {
+    console.log(this.question)
     this.questionService.create(this.question).subscribe(() =>{
       this.questionService.showMessage('deu certo porra')
       this.router.navigate(['/questions'])

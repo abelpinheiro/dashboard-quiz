@@ -1,7 +1,29 @@
-<button mat-raised-button (click)="createQuestion()" color="primary">
-    Salvar
-</button>
+<mat-card>
+    <mat-card-title>Nova Pergunta</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Pergunta" [(ngModel)] = "question.question" name="question">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Tipo de quiz" [(ngModel)] = "question.quizType" name="quizType">
+        </mat-form-field>
 
-<button mat-raised-button (click)="cancel()">
-    Cancelar
-</button>
+        <mat-form-field>
+            <mat-label>Tipo de resposta</mat-label>
+            <mat-select [(ngModel)] = "question.answerType" name="answerType">
+                <mat-option *ngFor="let answerType of answerTypes" [value]="answerType.value"  >
+                    {{answerType.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+
+    <button mat-raised-button (click)="createQuestion()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
