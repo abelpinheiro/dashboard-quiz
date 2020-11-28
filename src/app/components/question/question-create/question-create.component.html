@@ -18,18 +18,36 @@
             </mat-select>
         </mat-form-field>
 
-        <div class="answer-area" *ngFor="let item of question.choices;let index = index;trackBy:trackByFn">
-            <mat-form-field>
-                <mat-label>Opção 01</mat-label>
-                <input matInput placeHolder="Opção 0[index]" name="word{{index}}" placeholder="item" [(ngModel)]="question.choices[index]">
-                
-            </mat-form-field>
-            <mat-checkbox>Resposta correta?</mat-checkbox>
+        <!-- Campo de opções se tipo de resposta for de escrita -->
+        <div  *ngIf="question.answerType == 'WRITING_CHOICE'">
+            <div class="answer-area" *ngFor="let item of question.choices;let index = index;trackBy:trackByFn">
+                <mat-form-field>
+                    <mat-label>Opção 0{{index + 1}}</mat-label>
+                    <input matInput placeHolder="Opção 0[index]" name="word{{index}}" placeholder="item" [(ngModel)]="question.choices[index]">
+                    
+                </mat-form-field>
+                <mat-checkbox>Resposta correta?</mat-checkbox>
+            </div>
+            
+
+            <button mat-raised-button (click)="click()">
+                Adicionar opção
+            </button>
+        </div>
+
+        <!-- Campo de opções se tipo de resposta não for de escrita -->
+        <div *ngIf="question.answerType != 'WRITING_CHOICE'">
+            <div class="answer-area" *ngFor="let item of numSequence(4);let index = index;trackBy:trackByFn">
+                <mat-form-field>
+                    <mat-label>Opção 0{{index + 1}}</mat-label>
+                    <input matInput placeHolder="Opção 0[index]" name="word{{index}}" placeholder="item" [(ngModel)]="question.choices[index]">
+                    
+                </mat-form-field>
+                <mat-checkbox>Resposta correta?</mat-checkbox>
+            </div>
         </div>
         
-        <button mat-raised-button (click)="click()">
-            Adicionar opção
-        </button>
+        
         
     </form>
 

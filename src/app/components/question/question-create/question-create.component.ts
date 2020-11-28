@@ -20,7 +20,7 @@ export class QuestionCreateComponent implements OnInit {
     question: "",
     answerType: "",
     choices: [
-      "qqqq","wwwww"
+      ""
     ],
     answers: [
       1
@@ -57,7 +57,11 @@ export class QuestionCreateComponent implements OnInit {
  }
 
  click(){
-  this.question.choices.push("ffff");
+  this.question.choices.push("");
+}
+
+numSequence(number: number): Array<number>{
+  return Array(number);
 }
 
 }

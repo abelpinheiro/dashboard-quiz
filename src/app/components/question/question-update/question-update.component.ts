@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuestionUpdateComponent implements OnInit, Question {
 
-  question: Question = new Question();
+  const question: Question;
 
   constructor(private questionService: QuestionService, private router: Router, private route: ActivatedRoute) { }
 
