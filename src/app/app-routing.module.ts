@@ -1,3 +1,4 @@
+import { QuestionUpdateComponent } from './components/question/question-update/question-update.component';
 import { QuestionCreateComponent } from './components/question/question-create/question-create.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,6 +17,10 @@ const routes: Routes = [{
   {
     path: "questions/create",
     component: QuestionCreateComponent
+  },
+  {
+    path: "questions/update/:id",
+    component: QuestionUpdateComponent
   }
 ];
 

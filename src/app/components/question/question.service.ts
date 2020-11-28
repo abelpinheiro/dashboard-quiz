@@ -26,4 +26,19 @@ export class QuestionService {
     return this.http.post<Question>(this.baseUrl, question)
   } 
 
+  read(): Observable<Question[]>{
+    return this.http.get<Question[]>(this.baseUrl)
+  }
+
+  readById(id: string): Observable<Question>{
+    const url = `${this.baseUrl}/${id}`
+    return this.http.get<Question>(url)
+  }
+
+  update(question: Question): Observable<Question>{
+    const url = `${this.baseUrl}/${question.id}`
+    return this.http.put<Question>(url, question)
+  }
+
+  delete():void {}
 }

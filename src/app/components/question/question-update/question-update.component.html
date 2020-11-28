@@ -1,0 +1,38 @@
+<mat-card>
+    <mat-card-title>Alterar Pergunta</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Pergunta" [(ngModel)] = "question.question" name="question">
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Tipo de quiz" [(ngModel)] = "question.quizType" name="quizType">
+        </mat-form-field>
+
+        <mat-form-field class="dropdown">
+            <mat-label>Tipo de resposta</mat-label>
+            <mat-select [(ngModel)] = "question.answerType" name="answerType">
+                <mat-option *ngFor="let answerType of answerTypes" [value]="answerType.value"  >
+                    {{answerType.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <div class="answer-area" *ngFor="let item of question.choices;let index = index;trackBy:trackByFn">
+            <mat-form-field>
+                <mat-label>Opção 01</mat-label>
+                <input matInput placeHolder="Opção 0[index]" name="word{{index}}" placeholder="item" [(ngModel)]="question.choices[index]">
+                
+            </mat-form-field>
+            <mat-checkbox>Resposta correta?</mat-checkbox>
+        </div>        
+    </form>
+
+    <button mat-raised-button (click)="updateQuestion()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
