@@ -20,10 +20,7 @@ export class QuestionCreateComponent implements OnInit {
     question: "",
     answerType: "",
     choices: [
-      "Ada Lovelace",
-      "Marie Curie",
-      "Grace Hopper",
-      "Mae Jemison"
+      "qqqq","wwwww"
     ],
     answers: [
       1
@@ -54,5 +51,13 @@ export class QuestionCreateComponent implements OnInit {
   cancel(): void {
     this.router.navigate(['/questions'])
   }
+
+  trackByFn(index: any, item: any) {
+    return index;
+ }
+
+ click(){
+  this.question.choices.push("ffff");
+}
 
 }

@@ -3,6 +3,25 @@ form{
     flex-direction: column;
 }
 
+.answer-area{
+    width: auto;
+    flex-direction: row;
+}
+
+.dropdown{
+    width: 10%;
+}
+
+.answer-area > mat-form-field{
+    width: 90%;
+}
+
+.answer-area > mat-checkbox{
+    width: 10%;
+    align-self: flex-end;
+    align-content: flex-end;
+}
+
 button{
     margin: 20px 15px 0px 0px;
 }

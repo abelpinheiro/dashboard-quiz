@@ -3,6 +3,6 @@ export interface Question{
     quizType: string
     question: string
     answerType: string
-    choices: string[],
+    choices: string[]
     answers: number[]
 }
