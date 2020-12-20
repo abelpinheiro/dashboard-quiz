@@ -28,11 +28,9 @@ import { MatInputModule } from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { QuestionReadComponent } from './components/question/question-read/question-read.component';
-import { QuestionRead2Component } from './components/question/question-read2/question-read2.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
-import { QuestionUpdateComponent } from './components/question/question-update/question-update.component';
 
 @NgModule({
   declarations: [
@@ -46,8 +44,6 @@ import { QuestionUpdateComponent } from './components/question/question-update/q
     ForDirective,
     QuestionCreateComponent,
     QuestionReadComponent,
-    QuestionRead2Component,
-    QuestionUpdateComponent
   ],
   imports: [
     BrowserModule,

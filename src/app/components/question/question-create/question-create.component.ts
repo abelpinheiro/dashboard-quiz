@@ -42,6 +42,7 @@ export class QuestionCreateComponent implements OnInit {
 
   createQuestion(): void {
     console.log(this.question)
+
     this.questionService.create(this.question).subscribe(() =>{
       this.questionService.showMessage('deu certo porra')
       this.router.navigate(['/questions'])
@@ -54,14 +55,17 @@ export class QuestionCreateComponent implements OnInit {
 
   trackByFn(index: any, item: any) {
     return index;
- }
+  }
 
- click(){
-  this.question.choices.push("");
-}
+  click(){
+    if(this.question.choices.length < 4){
+      this.question.choices.push("");
+    }else{
+      this.questionService.showMessage("Não é possível criar mais campos de opções.")
+    }
+  }
 
-numSequence(number: number): Array<number>{
-  return Array(number);
-}
-
+  numSequence(number: number): Array<number>{
+    return Array(number);
+  }
 }
